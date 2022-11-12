@@ -11,6 +11,7 @@ alias linux-to="/home/ian/.scripts/linuxGetMaintainersToCC.sh"
 alias grind="/home/ian/.scripts/valgrindCheck.sh"
 alias minecraft="/home/ian/Games/minecraft/minecraft-launcher"
 alias gcma="git commit --amend -m"
+alias gcane="git commit --amend --no-edit"
 alias masterize="git fetch origin master && git rebase master"
 alias forceup="git push --no-verify --force"
 
