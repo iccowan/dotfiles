@@ -14,6 +14,11 @@ alias gcma="git commit --amend -m"
 alias gcane="git commit --amend --no-edit"
 alias masterize="git fetch origin master && git rebase master"
 alias forceup="git push --no-verify --force"
+alias pbcopy="xclip -selection clipboard"
+
+function copyfile() {
+    cat $1 | xclip -selection clipboard
+}
 
 # Automatically update JAVA_HOME from asdf
 function update_java_home_asdf {
