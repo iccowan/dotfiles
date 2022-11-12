@@ -1,0 +1,7 @@
+require('i202791.vim-config')
+require('i202791.packer')
+require('i202791.treesitter')
+require('i202791.nvim-cmp')
+require('i202791.lspconfig')
+require('i202791.tree')
+require('i202791.hexokinase')
