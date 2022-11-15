@@ -1,5 +1,6 @@
 # Composing Settings
 set editor = nvim
+set sig_dashes = no
 
 # Email Settings
 set imap_user = ""
