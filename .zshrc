@@ -5,6 +5,11 @@ alias masterize="git fetch origin master && git rebase master"
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+# History
+HISTFILE="${HOME}/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+
 # Custom commands
 function copyfile() {
     cat $1 | xclip -selection clipboard
