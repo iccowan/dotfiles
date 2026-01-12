@@ -1,1 +1,3 @@
-require('i202791')
+require('config.lazy')
+require('config.colorscheme')
+require('config.vimconfig')
