@@ -1,5 +1,20 @@
 # Custom Aliases
-alias masterize="git fetch origin master && git rebase master"
+function masterize() {
+    git fetch origin main &&
+        git rebase main
+}
+
+function gitclean() {
+    git fetch --prune &&
+        git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads |
+        awk '$2 == "[gone]" {print $1}' |
+        xargs git branch -D &
+    git gc
+}
+
+function copyfile() {
+    cat $1 | xclip -selection clipboard
+}
 
 # Enable reverse search
 bindkey -v
@@ -9,11 +24,6 @@ bindkey '^R' history-incremental-search-backward
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
-
-# Custom commands
-function copyfile() {
-    cat $1 | xclip -selection clipboard
-}
 
 # Automatically update JAVA_HOME from asdf
 # function update_java_home_asdf {
@@ -34,6 +44,7 @@ export GPG_TTY=$(tty)
 
 # Add ASDF to PATH
 export PATH="$PATH:/var/home/ian/.asdf/bin"
+export PATH="$PATH:/var/home/ian/.asdf/shims"
 
 # Prepare distrobox for prompt
 HOST_NAME="%m"
@@ -43,6 +54,9 @@ if [[ -v CONTAINER_ID ]]; then
     HOST_NAME="$CONTAINER_ID"
     ICON="📦"
 fi
+
+# Add autocompletion
+autoload -U compinit; compinit
 
 # Add git info to prompt
 autoload -Uz vcs_info
